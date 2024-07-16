@@ -73,6 +73,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
+app.get("/public", (req, res) => {
+  res.status(200).json({
+    message: "This is a public API endpoint.",
+  });
+});
 app.use("/dev", routes);
 app.get("/health", (req, res) => {
   console.log("health check");
