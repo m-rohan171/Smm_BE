@@ -57,6 +57,9 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+// Handle preflight requests
+app.options("*", cors(corsOptions));
+
 // Middleware to log requests for debugging
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path}`);
