@@ -12,7 +12,7 @@ const updateProfile = async (req, res) => {
     const user = await UserModel.findOne({ _id: userId });
 
     if (!user) {
-      return res.status(404).json({ msg: "User not found" });
+      return res.status(404).json({ message: "User not found" });
     }
 
     // Check if the current password is correct (only if newPassword is provided)
@@ -22,14 +22,16 @@ const updateProfile = async (req, res) => {
         user.password
       );
       if (!isCurrentPasswordValid) {
-        return res.status(400).json({ msg: "Current password is incorrect" });
+        return res
+          .status(400)
+          .json({ message: "Current password is incorrect" });
       }
 
       // Check if the new password and confirm password match
       if (newPassword !== confirmPassword) {
         return res
           .status(400)
-          .json({ msg: "New password and confirm password do not match" });
+          .json({ message: "New password and confirm password do not match" });
       }
     }
 
@@ -64,7 +66,7 @@ const viewProfile = async (req, res) => {
         .status(200)
         .json({ data: user, status: 200, message: "user fetch successfully" });
     } else {
-      res.status(404).json({ msg: "User not found" });
+      res.status(404).json({ message: "User not found" });
     }
   } catch (err) {
     res.status(500).send("Server Error");

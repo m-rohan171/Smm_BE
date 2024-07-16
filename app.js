@@ -52,8 +52,8 @@ const PORT = process.env.PORT || 4000;
 // Enable CORS for all routes or configure it for specific origins
 const corsOptions = {
   origin: [
-    // "http://localhost:3000",
-    "https://66967060d710f2a314ec276b--smm-fe.netlify.app",
+    "http://localhost:3000" ||
+      "https://66967060d710f2a314ec276b--smm-fe.netlify.app",
   ], // specify your allowed origins
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ["Content-Type", "Authorization"],
