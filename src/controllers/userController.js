@@ -73,6 +73,23 @@ const viewProfile = async (req, res) => {
   }
 };
 
+const userProfile = async (req, res) => {
+  try {
+    console.log("user making req is", req.user);
+    const userId = req.user.id;
+    const user = await UserModel.findOne({ _id: userId });
+    if (user) {
+      res
+        .status(200)
+        .json({ data: user, status: 200, message: "user fetch successfully" });
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (err) {
+    res.status(500).send("Server Error");
+  }
+};
+
 const deleteProfile = async (req, res) => {
   try {
     console.log("user making req is", req.user);
@@ -96,4 +113,5 @@ module.exports = {
   updateProfile,
   viewProfile,
   deleteProfile,
+  userProfile,
 };
