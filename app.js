@@ -53,7 +53,7 @@ const PORT = process.env.PORT || 4000;
 const corsOptions = {
   origin: [
     "http://localhost:3000",
-    "https://6696afbaf619af6aa84dcaf9--smm-fe.netlify.app",
+    "https://669cfb71650924d7424a7208--smm-fe.netlify.app",
   ], // specify your allowed origins
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ["Content-Type", "Authorization"],
